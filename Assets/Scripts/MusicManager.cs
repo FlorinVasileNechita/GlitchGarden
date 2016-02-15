@@ -19,6 +19,9 @@ public class MusicManager : MonoBehaviour {
 	void OnLevelWasLoaded(int level) {
 		var audioClip = levelMusicChangeArray.ElementAtOrDefault(level);
 		if (audioClip != null) {
+			if (_audioSource.clip == audioClip) {
+				return;
+			}
 			_audioSource.clip = audioClip;
 			_audioSource.Play();
 		}
